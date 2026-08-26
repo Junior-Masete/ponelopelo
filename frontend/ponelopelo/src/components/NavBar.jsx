@@ -1,39 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "tailwindcss";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "../assets/logo.png"; // Replace with your logo
-
-const navLinks = [
-  {
-    title: "About Us",
-    path: "/about",
-    submenu: [
-      { title: "Who We Are", path: "/about" },
-      { title: "Our Team", path: "/team" },
-      { title: "Our Values", path: "/values" },
-      { title: "Our Committee", path: "/committee" },
-    ],
-  },
-  {
-    title: "Projects",
-    path: "/projects",
-    submenu: [
-      { title: "Community Projects", path: "/projects/current" },
-      { title: "School Projects", path: "/projects/completed" },
-      { title: "School Uniform Projects", path: "/projects/completed" },
-      { title: "Termite Treatment Programme", path: "/projects/completed" },
-    ],
-  },
-  {
-    title: "Partners",
-    path: "/partners",
-  },
-  {
-    title: "Living Library",
-    path: "/library",
-  },
-];
 
 // const navLinks = [
 //   {
@@ -60,8 +29,49 @@ const navLinks = [
 
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]
+);
+
+  const navLinks = [
+  {
+    title: "About Us",
+    path: "/about-us",
+    submenu: [
+      { title: "Who We Are", path: "/about" },
+      { title: "Our Team", path: "/team" },
+      { title: "Our Values", path: "/values" },
+      { title: "Our Committee", path: "/committee" },
+    ],
+  },
+  {
+    title: "Projects",
+    path: "/projects",
+    submenu: [
+      { title: "Community Projects", path: "/projects/current" },
+      { title: "School Projects", path: "/projects/completed" },
+      { title: "School Uniform Projects", path: "/projects/completed" },
+      { title: "Termite Treatment Programme", path: "/projects/completed" },
+    ],
+  },
+  {
+    title: "Partners",
+    path: "/partners",
+  },
+  {
+    title: "Living Library",
+    path: "/living-library",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
+  },
+];
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -126,7 +136,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Link
-              to="/get-involved"
+              to="/contact"
               className="rounded-lg bg-red-500 px-7 py-3 font-semibold text-white transition hover:bg-red-600"
             >
               GET INVOLVED

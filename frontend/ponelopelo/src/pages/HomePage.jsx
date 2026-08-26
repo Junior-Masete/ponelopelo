@@ -11,7 +11,6 @@ function Homepage () {
             <Hero />
             <CommunitySection />
             <LivingLibrarySection />
-            <Footer />
         </>
     )
 }
