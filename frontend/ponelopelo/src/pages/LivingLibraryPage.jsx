@@ -1,4 +1,5 @@
-import whoareweImage from "../assets/gallery/livinglibrary/livingli.jpg";
+import {motion} from "framer-motion";
+import livinglibr from "../assets/gallery/livinglibrary/living_library3.jpg";
 
 const publications = [
   {
@@ -32,8 +33,15 @@ const publications = [
 function LivingLibraryPage() {
     return (
     <>
-        <section className="bg-[#1c3b72] py-16 lg:py-20">
-        <div className="max-w-5xl mx-auto px-6 text-left">
+        <section 
+        className="bg-[#1c3b72] py-16 lg:py-20">
+        <motion.div 
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        
+        className="max-w-5xl mx-auto px-6 text-left">
                     <h2 className="text-3xl lg:text-5xl font-bold text-white">
                     Living Library
                     </h2>
@@ -49,10 +57,16 @@ function LivingLibraryPage() {
                     generations, record them with care and consent, and return them to the community as a lasting
                     resource - in books, recordings and song.
                     </p>
-                </div>
+                </motion.div>
             </section>
 
-            <section className="py-15 bg-white">
+            <motion.section 
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            
+            className="py-15 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
 
                     <div className="flex flex-col md:flex-row items-center justify-center md:gap-20">
@@ -76,7 +90,7 @@ function LivingLibraryPage() {
 
                     <div className="w-full md:w-[600px] flex-shrink-0">
                         <img
-                        src={whoareweImage}
+                        src={livinglibr}
                         alt="Research Framework"
                         className="w-full rounded-3xl shadow-xl"
                         />
@@ -85,9 +99,15 @@ function LivingLibraryPage() {
                 </div>
 
             </div>
-        </section>
+        </motion.section>
 
-        <section className="bg-white px-4 py-8 sm:px-6 lg:px-8">
+        <motion.section 
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        
+        className="bg-white px-4 py-8 sm:px-6 lg:px-8">
             <div className="mx-auto w-full max-w-3xl">
                 {/* Heading */}
                 <h2 className="mb-6 text-center text-2xl font-bold text-[#233D60] sm:text-3xl">
@@ -112,7 +132,7 @@ function LivingLibraryPage() {
                 ))}
                 </div>
             </div>
-    </section>
+    </motion.section>
     </>
     )
 }

@@ -1,3 +1,4 @@
+import {motion} from "framer-motion";
 import YouthProgrammeSection from "../components/YouthProgrammeSection";
 import HistorySection from "../components/HistorySection";
 import Committee from "../components/Committee";
@@ -12,8 +13,14 @@ const images = [mission1, mission2, mission3, mission4]
 function AboutPage() {
     return (
         <>
-            <section className="bg-[#1c3b72] py-16 lg:py-20">
-                <div className="max-w-5xl mx-auto px-6 text-left">
+            <section 
+            className="bg-[#1c3b72] py-16 lg:py-20">
+                <motion.div 
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.8 }}
+                className="max-w-5xl mx-auto px-6 text-left">
                     <h2 className="text-3xl lg:text-5xl font-bold text-white">
                     About Ponelo Pelo
                     </h2>
@@ -21,10 +28,16 @@ function AboutPage() {
                     <p className="mt-5 text-lg lg:text-2xl text-white max-w-4xl  leading-tight mx-auto">
                     We bring collaboration between schools and communities for a brighter future of our learners.
                     </p>
-                </div>
+                </motion.div>
             </section>
 
-            <section className="py-15 bg-white">
+            <motion.section id="whoweare-section" 
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            
+            className="py-15 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
 
                     <div className="flex flex-col md:flex-row items-center justify-center md:gap-20">
@@ -66,9 +79,15 @@ function AboutPage() {
                 </div>
 
             </div>
-            </section>
+            </motion.section>
 
-            <section className="bg-[#f3f6f9] py-16 lg:py-20">
+            <motion.section 
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            
+            className="bg-[#f3f6f9] py-16 lg:py-20">
                 <div className="max-w-5xl mx-auto px-6 text-center">
                     <h2 className="text-3xl lg:text-4xl font-bold text-[#1d3554]">
                     Our Vision
@@ -81,9 +100,15 @@ function AboutPage() {
                     future is bright.
                     </p>
                 </div>
-            </section>
+            </motion.section>
 
-            <section className="bg-white py-16 lg:py-24">
+            <motion.section 
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            
+            className="bg-white py-16 lg:py-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-10">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     {/* Left Images */}
@@ -126,9 +151,15 @@ function AboutPage() {
                     </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
-            <section className="bg-[#f3f6f9] py-16 lg:py-20">
+            <motion.section 
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+
+            className="bg-[#f3f6f9] py-16 lg:py-20">
                 <div className="max-w-5xl mx-auto px-6 text-center">
                     <h2 className="text-3xl lg:text-4xl font-bold text-[#1d3554]">
                     Career
@@ -143,11 +174,16 @@ function AboutPage() {
                     scarce. If you want your work to change young lives, there is a place for you here.
                     </p>
                 </div>
-            </section>
+            </motion.section>
 
             <YouthProgrammeSection />
 
-            <section className="bg-[#f3f6f9] py-16 lg:py-20">
+            <motion.section 
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="bg-[#f3f6f9] py-16 lg:py-20">
                 <div className="max-w-5xl mx-auto px-6 text-center">
                     <h2 className="text-3xl lg:text-4xl font-bold text-[#1d3554]">
                     Where We Work
@@ -169,7 +205,7 @@ function AboutPage() {
                     believe its future is bright.
                     </p>
                 </div>
-            </section>
+            </motion.section>
 
             <HistorySection />
 

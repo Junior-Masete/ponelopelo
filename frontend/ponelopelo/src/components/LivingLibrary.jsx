@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
-import livingLibraryImg from "../assets/gallery/living_library.jpg"
+import {motion} from "framer-motion";
+import livingLibraryImg from "../assets/gallery/living_library2.jpg"
 
 export default function LivingLibrarySection() {
   return (
     <section className="bg-white py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <motion.div 
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+      
+      className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2">
 
           {/* Image */}
@@ -18,9 +25,9 @@ export default function LivingLibrarySection() {
 
           {/* Content */}
           <div className="text-left">
-            <span className="inline-block rounded-full bg-red-100 px-4 py-1 text-sm font-semibold text-red-600">
-              Living Library
-            </span>
+            <span className="text-sm font-semibold uppercase tracking-[0.25em] text-red-500">
+            LIVING LIBRARY
+          </span>
 
             <h2 className="mt-3 mb-3 text-2xl font-bold leading-none text-slate-800 sm:text-4xl lg:text-5xl">
               Embracing the Cultural Tapestry of Shangaan and Sepedi Communities
@@ -46,7 +53,7 @@ export default function LivingLibrarySection() {
           </div>
 
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

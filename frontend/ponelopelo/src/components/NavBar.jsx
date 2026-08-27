@@ -1,37 +1,16 @@
 import { useEffect, useState } from "react";
 import "tailwindcss";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
+import { HashLink } from "react-router-hash-link"
 import { ChevronDown, Menu, X } from "lucide-react";
-import logo from "../assets/logo.png"; // Replace with your logo
-
-// const navLinks = [
-//   {
-//     title: "About Us",
-//     path: "/about",
-//     dropdown: true,
-//   },
-//   {
-//     title: "Partners",
-//     path: "/partners",
-//     dropdown: true,
-//   },
-//   {
-//     title: "Projects",
-//     path: "/projects",
-//     dropdown: true,
-//   },
-//   {
-//     title: "Living Library@",
-//     path: "/library",
-//     dropdown: false,
-//   },
-// ];
+import logo from "../assets/logo.png"; 
 
 
 export default function Navbar() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     setIsOpen(false);
@@ -43,20 +22,20 @@ export default function Navbar() {
     title: "About Us",
     path: "/about-us",
     submenu: [
-      { title: "Who We Are", path: "/about" },
-      { title: "Our Team", path: "/team" },
-      { title: "Our Values", path: "/values" },
-      { title: "Our Committee", path: "/committee" },
+      { title: "Who We Are", path: "/about-us#whoweare-section" },
+      { title: "Our History", path: "/about-us#history-section" },
+      { title: "Our Committee", path: "/about-us#committee-section" },
+      { title: "Youth Programme", path: "/about-us#youth-section" },
     ],
   },
   {
     title: "Projects",
     path: "/projects",
     submenu: [
-      { title: "Community Projects", path: "/projects/current" },
-      { title: "School Projects", path: "/projects/completed" },
-      { title: "School Uniform Projects", path: "/projects/completed" },
-      { title: "Termite Treatment Programme", path: "/projects/completed" },
+      { title: "Community Projects", path: "/projects#community-section" },
+      { title: "School Projects", path: "/projects#school-section" },
+      { title: "School Uniform Projects", path: "/projects#uniform-section" },
+      { title: "Termite Treatment Programme", path: "/projects#termite-section" },
     ],
   },
   {
@@ -117,13 +96,13 @@ export default function Navbar() {
                     <div className="absolute left-0 top-full hidden w-56 rounded-lg border bg-white shadow-xl group-hover:block">
 
                     {item.submenu.map((sub) => (
-                        <NavLink
+                        <HashLink smooth
                         key={sub.title}
                         to={sub.path}
                         className="block px-5 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600"
                         >
                         {sub.title}
-                        </NavLink>
+                        </HashLink>
                     ))}
 
                     </div>
@@ -163,13 +142,69 @@ export default function Navbar() {
           }`}
         >
           <div className="border-t bg-white px-5 py-4">
-
             {navLinks.map((item, index) => (
+            <div key={item.title}>
+              {/* First item OR any item without a submenu */}
+              {index === 0 || !item.submenu ? (
+                <NavLink
+                  to={item.path}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setOpenSubmenu(null);
+                  }}
+                  className="block py-4 text-left font-medium"
+                >
+                  {item.title}
+                </NavLink>
+              ) : (
+                <>
+                  {/* Items with submenus */}
+                  <button
+                    onClick={() => {
+                      setOpenSubmenu(
+                        openSubmenu === index ? null : index
+                      );
+                    }}
+                    className="flex w-full items-center justify-between py-4 text-left font-medium"
+                  >
+                    <span>{item.title}</span>
+
+                    <ChevronDown
+                      size={18}
+                      className={`transition-transform ${
+                        openSubmenu === index ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {openSubmenu === index && (
+                    <div className="ml-4 border-l border-gray-200">
+                      {item.submenu.map((sub) => (
+                        <HashLink
+                          key={sub.title}
+                          to={sub.path}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setOpenSubmenu(null);
+                          }}
+                          className="block px-4 py-3 text-gray-600 hover:text-red-600"
+                        >
+                          {sub.title}
+                        </HashLink>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          ))}
+
+            {/* {navLinks.map((item, index) => (
                 <div key={item.title}>
 
                     <button
                     onClick={() => {
-                        if (item.submenu) {
+                        if (index !== 0 && item.submenu) {
                         setOpenSubmenu(openSubmenu === index ? null : index);
                         } else {
                         setIsOpen(false);
@@ -179,7 +214,7 @@ export default function Navbar() {
                     >
                     <span>{item.title}</span>
 
-                    {item.submenu && (
+                    {index !== 0 && item.submenu && (
                         <ChevronDown
                         size={18}
                         className={`transition-transform ${
@@ -189,14 +224,14 @@ export default function Navbar() {
                     )}
                     </button>
 
-                    {!item.submenu && (
+                    {(!item.submenu || index === 0)  && (
                     <NavLink
                         to={item.path}
                         onClick={() => setIsOpen(false)}
                     />
                     )}
 
-                    {item.submenu && openSubmenu === index && (
+                    {index !== 0 && item.submenu && openSubmenu === index && (
                     <div className="ml-4 border-l border-gray-200">
 
                         {item.submenu.map((sub) => (
@@ -217,10 +252,10 @@ export default function Navbar() {
                     )}
 
                 </div>
-                ))}
+                ))} */}
 
             <Link
-              to="/get-involved"
+              to="/contact"
               onClick={() => setIsOpen(false)}
               className="mt-5 block rounded-lg bg-red-500 py-3 text-center font-semibold text-white"
             >

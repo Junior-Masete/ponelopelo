@@ -1,3 +1,4 @@
+import {motion} from "framer-motion";
 import whoareweImage from "../assets/gallery/livinglibrary/livingli.jpg";
 import uniformProjectImage from "../assets/gallery/projects/uniformproj.png";
 
@@ -21,7 +22,12 @@ function ProjectsPage () {
     return (
         <>
 
-        <section 
+        <motion.section id="community-section"
+        initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+
         className="bg-white py-15">
 
             <div className="max-w-7xl mx-auto px-6">
@@ -29,7 +35,9 @@ function ProjectsPage () {
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                 <div className="md:text-right">
-
+                    <span className="text-sm font-semibold uppercase tracking-[0.25em] text-red-500">
+                    COMMUNITY PROJECT
+                  </span>
                     <h2 className="text-4xl font-bold text-[#1d3554]">
                     Building Stronger Communities: Uniting for Positive Change
                     </h2>
@@ -57,9 +65,15 @@ function ProjectsPage () {
 
             </div>
 
-        </section>
+        </motion.section>
 
-        <section className="py-15 bg-slate-50">
+        <motion.section id="school-section" 
+        initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+        
+        className="py-15 bg-slate-50">
                 <div className="max-w-7xl mx-auto px-6">
 
                     <div className="flex flex-col md:flex-row items-center justify-center md:gap-20">
@@ -73,7 +87,9 @@ function ProjectsPage () {
                     </div>
 
                     <div className="text-left">
-                        {/* Text */}
+                        <span className="text-sm font-semibold uppercase tracking-[0.25em] text-red-500">
+                        SCHOOL PROJECT
+                      </span>
                         <h2 className="text-4xl mb-3 font-bold text-[#1d3554]">
                         Empowering Education: Creating Thriving Schools Together
                         </h2>
@@ -101,9 +117,15 @@ function ProjectsPage () {
                 </div>
 
             </div>
-            </section>
+            </motion.section>
 
-            <section className="bg-white px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
+            <motion.section id="uniform-section" 
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            
+            className="bg-white px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <div className="text-center">
@@ -176,7 +198,7 @@ function ProjectsPage () {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
         </>
     )
 }

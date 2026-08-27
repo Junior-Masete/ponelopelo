@@ -1,4 +1,5 @@
 import { Mail, Send } from "lucide-react";
+import {motion} from "framer-motion";
 import { useState } from "react";
 import emailjs from "@emailjs/browser"
 
@@ -50,7 +51,12 @@ const sendEmail = (e) => {
 }
 
   return (
-    <section 
+    <motion.section 
+    initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+
     className="bg-white py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-6">
 
@@ -121,7 +127,7 @@ const sendEmail = (e) => {
                   </h3>
 
                   <a
-                    href="https://www.linkedin.com/company/cross-catchment-collective/about/?viewAsMember=true"
+                    href="https://www.linkedin.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-lg text-gray-700 hover:text-[#22613C]"
@@ -277,7 +283,7 @@ const sendEmail = (e) => {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }
 

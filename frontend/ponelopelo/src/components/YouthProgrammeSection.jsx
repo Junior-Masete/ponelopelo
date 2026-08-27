@@ -7,6 +7,7 @@ import {
   Globe,
   ShieldCheck,
 } from "lucide-react";
+import {motion} from "framer-motion";
 
 const programmeItems = [
   {
@@ -55,7 +56,13 @@ const programmeItems = [
 
 function YouthProgrammeSection() {
   return (
-    <section className="bg-slate-50 py-20">
+    <motion.section id="youth-section" 
+    initial={{ opacity: 0, y: 60 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.8 }}
+
+    className="bg-slate-50 py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-10 max-w-4xl text-center">
@@ -108,7 +115,7 @@ function YouthProgrammeSection() {
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

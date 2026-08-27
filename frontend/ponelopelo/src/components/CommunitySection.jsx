@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-
+import { HashLink } from "react-router-hash-link"
+import {motion} from "framer-motion";
 import communityImg from "../assets/gallery/community.jpg";
 import schoolImg from "../assets/gallery/school_garden.jpg";
 import partnersImg from "../assets/gallery/partners.jpg";
@@ -10,14 +11,14 @@ const cards = [
     description:
       "Embracing diversity and creating opportunities through community integration, cultural celebrations, support for special needs, waste management, and other initiatives that strengthen communities.",
     image: communityImg,
-    link: "/community-projects",
+    link: "/projects#community-section",
   },
   {
     title: "Our School Projects",
     description:
       "Supporting schools through vegetable gardens, outdoor classrooms, culture centres, libraries, and sustainable learning environments that help learners thrive.",
     image: schoolImg,
-    link: "/school-projects",
+    link: "/projects#school-section",
   },
   {
     title: "Our Partners",
@@ -31,7 +32,13 @@ const cards = [
 export default function CommunitySection() {
   return (
     <section className="bg-gray-50 py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <motion.div 
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+      
+      className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Heading */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-slate-800 sm:text-4xl lg:text-5xl">
@@ -70,17 +77,18 @@ export default function CommunitySection() {
                   {card.description}
                 </p>
 
-                <Link
+                <HashLink
+                smooth
                   to={card.link}
                   className="inline-flex items-center rounded-lg bg-red-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-600"
                 >
                   Read More
-                </Link>
+                </HashLink>
               </div>
             </article>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
+import {motion} from "framer-motion";
 import partnersFramework from "../assets/gallery/partners/partners.png";
 
 function PartnersPage() {
   return (
-    <section className="bg-white py-20">
+    <motion.section 
+    initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+
+    className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-14 text-center">
@@ -64,7 +71,7 @@ function PartnersPage() {
             {/* CTA */}
             <div className="mt-8">
               <Link
-                to="/partners"
+                to="/contact"
                 className="inline-flex items-center rounded-lg bg-red-500 px-7 py-3 font-semibold text-white transition duration-300 hover:bg-red-600 hover:shadow-lg"
               >
                 Partner With Us
@@ -73,7 +80,7 @@ function PartnersPage() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

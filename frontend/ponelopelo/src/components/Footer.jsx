@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link"
 import logo from "../assets/logo.png";
 
 export default function Footer() {
@@ -35,39 +36,39 @@ export default function Footer() {
 
             <ul className="space-y-3">
               <li>
-                <Link
-                  to="/community-projects"
+                <HashLink
+                  to="/projects#community-section"
                   className="text-gray-600 transition hover:text-red-500"
                 >
                   Community Projects
-                </Link>
+                </HashLink>
               </li>
 
               <li>
-                <Link
-                  to="/school-projects"
+                <HashLink
+                  to="/projects#school-section"
                   className="text-gray-600 transition hover:text-red-500"
                 >
                   School Projects
-                </Link>
+                </HashLink>
               </li>
 
               <li>
-                <Link
-                  to="/school-uniform-project"
+                <HashLink
+                  to="/projects#uniform-section"
                   className="text-gray-600 transition hover:text-red-500"
                 >
                   School Uniform Projects
-                </Link>
+                </HashLink>
               </li>
 
               <li>
-                <Link
+                <HashLink
                   to="/termite-treatment"
                   className="text-gray-600 transition hover:text-red-500"
                 >
                   Termite Treatment
-                </Link>
+                </HashLink>
               </li>
 
               <li>
@@ -89,30 +90,30 @@ export default function Footer() {
 
             <ul className="space-y-3">
               <li>
-                <Link
-                  to="/about"
+                <HashLink
+                  to="/about-us#whoweare-section"
                   className="text-gray-600 transition hover:text-red-500"
                 >
                   Who We Are
-                </Link>
+                </HashLink>
               </li>
 
               <li>
-                <Link
-                  to="/values"
+                <HashLink
+                  to="/about-us#history-section"
                   className="text-gray-600 transition hover:text-red-500"
                 >
-                  Our Values
-                </Link>
+                  Our History
+                </HashLink>
               </li>
 
               <li>
-                <Link
-                  to="/committee"
+                <HashLink
+                  to="/about-us#committee-section"
                   className="text-gray-600 transition hover:text-red-500"
                 >
                   Our Committee
-                </Link>
+                </HashLink>
               </li>
 
               <li>
@@ -176,7 +177,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Ponelo Pelo. All rights reserved.
             </p>
 
-            <div className="flex gap-6">
+            {/* <div className="flex gap-6">
               <Link
                 to="/privacy-policy"
                 className="hover:text-red-500 transition"
@@ -190,7 +191,7 @@ export default function Footer() {
               >
                 Terms of Use
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

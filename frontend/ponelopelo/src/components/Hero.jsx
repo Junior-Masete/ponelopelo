@@ -1,23 +1,32 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {motion} from "framer-motion";
 import personImage from "../assets/banner_image2.png";
 import dotsPattern from "../assets/dots-pattern.png";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative overflow-hidden bg-[#E93636]">
-      <div className="relative mx-auto min-h-[420px]  px-6 sm:min-h-[480px] sm:px-8 lg:min-h-[500px] lg:px-10">
+      <motion.div 
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+      
+      className="relative mx-auto min-h-[420px]  px-6 sm:min-h-[480px] sm:px-8 lg:min-h-[500px] lg:px-10">
 
         {/* Dot Pattern */}
         <img
           src={dotsPattern}
           alt=""
           aria-hidden="true"
-          className="absolute right-0 top-0 h-full w-[45%] object-cover"
+          className="absolute right-0 top-0 h-full w-[45%] object-cover max-md:-scale-x-100 transform rotate-180 sm:rotate-0"
         />
 
         {/* Text */}
-        <div className="relative z-20 flex min-h-[420px] max-w-[580px] flex-col justify-center pb-48 pt-12 sm:min-h-[480px] sm:pb-52 lg:min-h-[500px] lg:pb-0">
-          <h1 className="max-w-[430px] text-4xl font-extrabold leading-[0.95] text-left text-white sm:text-5xl lg:text-[52px]">
+        <div className="relative z-20 flex min-h-[420px] max-w-[580px] flex-col justify-center md:pb-48 pt-12 sm:min-h-[480px] sm:pb-52 lg:min-h-[500px] lg:pb-0">
+          <h1 className="max-w-[430px] mb-3 text-4xl font-extrabold leading-[0.95] text-left text-white sm:text-5xl lg:text-[52px]">
             Building Bright Futures
             <br />
             Together
@@ -29,8 +38,9 @@ const Hero = () => {
             we support learners, teachers, and local economic activities.
           </p>
 
-          <div className="mt-5">
+          <div className="mt-5 text-left">
             <button
+              onClick={() => navigate("/about-us")}   
               className="rounded-md bg-[#233D60] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1b304d]"
             >
               Learn More
@@ -43,10 +53,10 @@ const Hero = () => {
           <img
             src={personImage}
             alt="School learner"
-            className="block h-auto w-full"
+            className="block h-auto w-[80%]"
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

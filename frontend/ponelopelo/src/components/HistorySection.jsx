@@ -1,5 +1,5 @@
 import { Calendar } from "lucide-react";
-
+import {motion} from "framer-motion";
 const historyTimeline = [
   {
     year: "2020",
@@ -41,7 +41,13 @@ const historyTimeline = [
 
 function HistorySection() {
   return (
-    <section className="bg-white py-20">
+    <motion.section id="history-section" 
+    initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+
+    className="bg-white py-20">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16 text-center">
@@ -108,7 +114,7 @@ function HistorySection() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
