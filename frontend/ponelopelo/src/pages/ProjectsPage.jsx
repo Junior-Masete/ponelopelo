@@ -1,6 +1,7 @@
 import {motion} from "framer-motion";
 import whoareweImage from "../assets/gallery/livinglibrary/livingli.jpg";
 import uniformProjectImage from "../assets/gallery/projects/uniformproj.png";
+import comproj from "../assets/gallery/projects/communitypr.jpg";
 
 const impactPoints = [
   {
@@ -56,7 +57,7 @@ function ProjectsPage () {
                 </div>
 
                 <img
-                    src={whoareweImage}
+                    src={comproj}
                     alt="Youth Academy"
                     className="rounded-3xl shadow-xl w-full object-cover"
                 />
